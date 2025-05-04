@@ -26,6 +26,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:api'])->group(function () {
+    Route::get('/logout', [AuthController::class, 'logout']);
 
     Route::middleware(['role:admin'])->group(function () {
         /* Hotel Routes */
@@ -49,7 +50,6 @@ Route::middleware(['auth:api'])->group(function () {
 
         Route::post('bookings', [BookingController::class, 'bookingRooms']);
         Route::get('hotels/search', [BookingController::class, 'search']);
-
         Route::get('/bookings/history', [BookingController::class, 'bookingHistory']);
         Route::delete('/bookings/{id}/cancel', [BookingController::class, 'cancelBooking']);
     });

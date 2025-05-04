@@ -1,66 +1,129 @@
-# Hotel Booking API
+# 🏨 Hotel Booking API
 
-A Laravel-based backend for a hotel booking platform with user authentication, role-based access, hotel and room management, image upload, advanced booking logic, and search filtering capabilities.
+A Laravel-based backend for a hotel booking platform with JWT authentication, role-based access control, hotel and room management, image handling, advanced booking logic with overlap prevention, and search filtering.
 
 ---
 
 ## 🏗️ Project Features
 
 ### 👥 User Roles
+
 - **Admin**
-  - Full CRUD access to hotels, rooms, and bookings
-  - Can manage room images and availability
+  - Full CRUD access to hotels and rooms
 - **User**
-  - Can browse and search for available hotels and rooms
-  - Can make bookings, view booking history
+  - Can browse and search hotels/rooms
+  - Can make bookings and view booking history
+  - Can cancel bookings
 
-### 🏨 Hotel & Room Management
-- Add, update, and delete hotels
-- Assign rooms to hotels with:
-  - Room number, type, amenities, price, etc.
-  - Multiple images per room
+---
 
-### 📦 Booking System
-- JWT-based authentication
-- Prevents overlapping bookings using date validation
-- Booking confirmation and cancellation support
+## 🏨 Hotel & Room Management (Admin Only)
 
-### 🔍 Advanced Search
-- Filter by location, price range, and availability
-- Check-in and Check-out availability logic
-- Returns only unbooked rooms
+- **Hotel**
+  - Add, update, delete hotels
+  - View list and individual hotel details
+- **Room**
+  - Add, update, delete rooms
+  - Assign rooms to hotels
+  - Room details: number, type, amenities, price, images
+
+---
+
+## 📦 Booking System (User Only)
+
+- Authenticated booking via JWT
+- Prevents overlapping bookings using check-in/out validation
+- Allows booking history and cancellation
+
+---
+
+## 🔍 Advanced Search
+
+- Filter by:
+  - Hotel name
+  - Location
+  - Price range
+  - Date availability (check-in / check-out)
+- Returns only **available rooms**
 
 ---
 
 ## 🔐 Authentication
 
-Uses JWT (JSON Web Token) for secure API authentication.
+Uses **JWT (JSON Web Token)** for secure API access.
 
-### Endpoints:
-- `POST /api/register`
-- `POST /api/login`
-- `GET /api/user` (Authenticated)
-- `POST /api/logout` (Authenticated)
+### 🔹 Endpoints
+
+| Method | Endpoint       | Description        |
+|--------|----------------|--------------------|
+| POST   | `/api/register` | Register a new user |
+| POST   | `/api/login`    | Authenticate user  |
+| GET    | `/api/logout`   | Logout user (token invalidation) |
 
 ---
 
 ## 🔧 API Endpoints Overview
 
-| Functionality      | Method | Endpoint                      |
-|--------------------|--------|-------------------------------|
-| Register           | POST   | /api/register                 |
-| Login              | POST   | /api/login                    |
-| Hotels CRUD (Admin)| REST   | /api/hotels                   |
-| Rooms CRUD (Admin) | REST   | /api/rooms                    |
-| Book Room          | POST   | /api/bookings                 |
-| View Bookings      | GET    | /api/bookings                 |
-| Booking History    | GET    | /api/bookings/history         |
-| Search             | GET    | /api/search?params            |
+### 🛑 Admin Routes (Requires JWT + `role:admin`)
+
+#### 🔹 Hotels
+
+| Method | Endpoint                        | Description        |
+|--------|----------------------------------|--------------------|
+| GET    | `/api/hotels`                   | List all hotels    |
+| GET    | `/api/hotels/{hotel}/edit`      | Get hotel for edit |
+| POST   | `/api/hotels`                   | Create a hotel     |
+| POST   | `/api/hotels/update`            | Update hotel       |
+| DELETE | `/api/hotels/{hotel}/delete`    | Delete hotel       |
+
+#### 🔹 Rooms
+
+| Method | Endpoint                        | Description         |
+|--------|----------------------------------|---------------------|
+| GET    | `/api/rooms`                    | List all rooms      |
+| GET    | `/api/rooms/{room}/edit`        | Get room for edit   |
+| POST   | `/api/rooms`                    | Create new room(s)  |
+| POST   | `/api/rooms/update`             | Update room         |
+| PATCH  | `/api/rooms/{room}`             | RESTful room update |
+| DELETE | `/api/rooms/{room}`             | Delete room         |
+
+---
+
+### 👤 User Routes (Requires JWT + `role:user`)
+
+#### 🔹 Bookings
+
+| Method | Endpoint                         | Description         |
+|--------|----------------------------------|---------------------|
+| POST   | `/api/bookings`                 | Book a room         |
+| GET    | `/api/bookings/history`         | View booking history|
+| DELETE | `/api/bookings/{id}/cancel`     | Cancel booking      |
+
+#### 🔹 Hotel Search
+
+| Method | Endpoint                         | Description                |
+|--------|----------------------------------|----------------------------|
+| GET    | `/api/hotels/search`            | Search hotels and rooms    |
 
 ---
 
 ## 🧪 Postman Testing
 
-All endpoints can be tested using Postman.
+All routes can be tested using **Postman**:
 
-- Set Authorization header:
+1. **Set Authorization header**:  
+   `Authorization: Bearer {JWT_TOKEN}`
+
+2. **Test Role-Based Routes**:  
+   - Use an Admin account for hotel/room routes  
+   - Use a User account for bookings/search
+
+---
+
+## 📁 Tech Stack
+
+- Laravel 11
+- JWT Auth (e.g., `tymon/jwt-auth`)
+- MySQL
+- Laravel Middleware for role checking
+- Postman for API testing
