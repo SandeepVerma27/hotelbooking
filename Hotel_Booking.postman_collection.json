@@ -1,0 +1,813 @@
+{
+	"info": {
+		"_postman_id": "02fa0ca3-4b9a-47ad-8285-78bfa89849ca",
+		"name": "Hotel_Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32609053"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Ragister",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3|bouCeiVe7CQdL6tb3FBYTgWIX0HjoruUgST8lJb550a7a639",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Admin\",\r\n  \"email\": \"admin@example.com\",\r\n  \"password\": \"password\",\r\n  \"role\": \"admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2MjgzMzI2LCJleHAiOjE3NDYyOTA1MjYsIm5iZiI6MTc0NjI4MzMyNiwianRpIjoidWVpSmRhNzlmUk5Pb2RzZiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.VtiqETuwRcY_BdCgS_UMBYBuuAmtLbrfjAc8RN-pAqQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@example.com\",\r\n  \"password\": \"password\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HotelManage",
+			"item": [
+				{
+					"name": "add-hotels",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2MjcwNDY4LCJleHAiOjE3NDYyNzQwNjgsIm5iZiI6MTc0NjI3MDQ2OCwianRpIjoiSnpxYzBobzJoT2JjMUtWMSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.820_nUK9BExkCZ8aqaPl7BnJO_DEPYnIEXLjpdSopGU",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Mountain View Resort",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "456 Alpine Road, Aspen, CO",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "A peaceful mountain resort ideal for skiing and hiking enthusiasts.",
+									"type": "text"
+								},
+								{
+									"key": "contact_number",
+									"value": "+1987654321",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "info@mountainviewresort.com",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "is_featured",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "hotel_image",
+									"type": "file",
+									"src": "postman-cloud:///1f0280fb-0427-4050-a7db-da69438b0a8f"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/hotels",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hotel-lists",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2MjcwNDY4LCJleHAiOjE3NDYyNzQwNjgsIm5iZiI6MTc0NjI3MDQ2OCwianRpIjoiSnpxYzBobzJoT2JjMUtWMSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.820_nUK9BExkCZ8aqaPl7BnJO_DEPYnIEXLjpdSopGU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/hotels",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-edit-data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2MjcwNDY4LCJleHAiOjE3NDYyNzQwNjgsIm5iZiI6MTc0NjI3MDQ2OCwianRpIjoiSnpxYzBobzJoT2JjMUtWMSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.820_nUK9BExkCZ8aqaPl7BnJO_DEPYnIEXLjpdSopGU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/hotels/4/edit",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hotels",
+								"4",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-hotel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2Mjc0MzEzLCJleHAiOjE3NDYyNzc5MTMsIm5iZiI6MTc0NjI3NDMxMywianRpIjoiOUtBT1dwYU1mS1ZDT014NSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.YN_AwbJPdLsTbXdH_s2HEPxMZ6gETm6HaiENTr-wKy8",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Mountain View Resort update",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "456 Alpine Road, Aspen, CO update",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "A peaceful mountain resort ideal for skiing and hiking enthusiasts udpaet",
+									"type": "text"
+								},
+								{
+									"key": "contact_number",
+									"value": "+1987654321",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "info@mountainviewresort.com",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "is_featured",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hotel_image",
+									"type": "file",
+									"src": "postman-cloud:///1f0280fb-0427-4050-a7db-da69438b0a8f"
+								},
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/hotels/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hotels",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-hotel",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2Mjc0MzEzLCJleHAiOjE3NDYyNzc5MTMsIm5iZiI6MTc0NjI3NDMxMywianRpIjoiOUtBT1dwYU1mS1ZDT014NSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.YN_AwbJPdLsTbXdH_s2HEPxMZ6gETm6HaiENTr-wKy8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/hotels/4/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hotels",
+								"4",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room Manage",
+			"item": [
+				{
+					"name": "add rooms",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2Mjg2NTE1LCJleHAiOjE3NDYyOTM3MTUsIm5iZiI6MTc0NjI4NjUxNSwianRpIjoiWVBMY0NEeXZValhnOUgzWiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.YXc7PURf7sdhRoLZB44nMdkwua1yJWhz-a38PaSOpFY",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "hotel_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "room_number",
+									"value": "105",
+									"type": "text"
+								},
+								{
+									"key": "room_type",
+									"value": "Deluxe Sea View update",
+									"type": "text"
+								},
+								{
+									"key": "price_per_night",
+									"value": "220.00",
+									"type": "text"
+								},
+								{
+									"key": "max_guests",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "is_available",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "is_featured",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "A spacious room with a sea-facing view",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "30 sqm",
+									"type": "text"
+								},
+								{
+									"key": "amenities",
+									"value": "Wi-Fi, Balcony, King Bed",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rooms",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rooms-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2Mjc1NjYwLCJleHAiOjE3NDYyNzkyNjAsIm5iZiI6MTc0NjI3NTY2MCwianRpIjoiN2o4SnBYVmVXclllTVJmRSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.yfRIfCZ0UceUezPXFip2_pIt6mSEbFVHB6OuLqjOUaU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rooms",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get hotels list",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "update rooms",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "hotel_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "room_number",
+									"value": "105",
+									"type": "text"
+								},
+								{
+									"key": "room_type",
+									"value": "Deluxe Sea View update",
+									"type": "text"
+								},
+								{
+									"key": "price_per_night",
+									"value": "220.00",
+									"type": "text"
+								},
+								{
+									"key": "max_guests",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "is_available",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "is_featured",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "A spacious room with a sea-facing view",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "30 sqm",
+									"type": "text"
+								},
+								{
+									"key": "amenities",
+									"value": "Wi-Fi, Balcony, King Bed",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rooms/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rooms",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-edit-date",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2MjgxMDAxLCJleHAiOjE3NDYyODgyMDEsIm5iZiI6MTc0NjI4MTAwMSwianRpIjoiWVBVT20yZDFkcDlhUTA3aSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.qkuSccRPvk05V-51ok-qPCTRADRAUt7v_ifDAQ7i8FY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rooms/3/edit",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rooms",
+								"3",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete rooms",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2MjgzNTkxLCJleHAiOjE3NDYyOTA3OTEsIm5iZiI6MTc0NjI4MzU5MSwianRpIjoiR09PT01wTW5ORVVJZERmUCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-1kEIiMWVOnXudf095rbPpp8M6Of8tENggrZnKlH1sU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rooms/3?",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rooms",
+								"3"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2MjE0MTY1LCJleHAiOjE3NDYyMTc3NjUsIm5iZiI6MTc0NjIxNDE2NSwianRpIjoiYlJ1RllITjk0TXBCcUQxdCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.A7bTYwmxdXyE6w1yxE_C99Ho98vrnh35YjWcsaPb7cM",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"room_id\": 3,\r\n  \"check_in_date\": \"2025-06-01\",\r\n  \"check_out_date\": \"2025-06-02\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/bookings",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-room-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzQ2Mjg2NTE1LCJleHAiOjE3NDYyOTM3MTUsIm5iZiI6MTc0NjI4NjUxNSwianRpIjoiWVBMY0NEeXZValhnOUgzWiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.YXc7PURf7sdhRoLZB44nMdkwua1yJWhz-a38PaSOpFY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rooms",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searching",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "booking list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/bookings/history",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"bookings",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking history",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "cancel booking",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/bookings/1/cancel",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"bookings",
+								"1",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
